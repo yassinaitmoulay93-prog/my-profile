@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta chareset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الملف  الشخصي - ألإنجازات و التخصصات </title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-1: #38bdf8;
+            --accent-2: #818cf8;
+            --accent-3: #c084fc;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --glow-color: rgba(56, 189, 248, 0.15);
+        }
+
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+        background-color: var(--bg-color);
+        background-image:
+            radial-gradient(circle at 10% 20%, rgba(129, 140, 248, 0.15) 0%, transparent 40%),
+            radial-gradient(circle at 90% 80%, rgba(192, 132, 252, 0.15) 0%, transparent 40%);
+        color: var(--text-main);
+        min-height: 100vh;
+        padding: 40px 20px;
+        overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .profile-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px var(--glow-color);
+            position: relative;
+            overflow: hidden;
+            animation: fadeln 1s ease-out;
+        }
+
+        .profile-card::before {
+            content: ";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+        }
+
+        .avatar-container {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-1), var(--accent-3));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            font-weight: bold;
+            color: #fff;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+            animation: pulseGlow 3s infinite alternate;
+        }
+
+        .title-area h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
+            background: linear-gradient(90deg, #fff, var(--accent-1));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .title-area p {
+            color: var(--text-muted);
+            font-size: 16px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            margin: 30px 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--accent-1);
+        }
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-item {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--border-color);
+            padding: 18px 20px;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-1);
+            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.2);
+        }
+
+        .skill-item h3 {
+            font-size: 17px;
+            margin-bottom: 6px;
+            color: #fff;
+        }
+
+        .skill-item p {
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .awesome-box {
+            margin-top: 35px;
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.05), rgba(192, 132, 252, 0.05));
+            border: 1px dashed var(--accent-2);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .awesome-box h3 {
+            color: var(--accent-3);
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+
+        .awesome-box p {
+            color: var(--text-main);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        @keyframes fadeln {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform; translateY(0); }
+        }
+
+        @keyframes pulesGlow {
+            0% { box-shadow: 0 0 15px rgba(56, 189, 248, 0.3); }
+            100% { box-shadow: 0 0 30px rgba(192, 132, 252, 0.6); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="profile-card">
+
+            <div class="header">
+                <div class="avatar-container">
+                    🧠
+                </div>
+                <div class="title-area">
+                    <h1>مرحبا بك فالصفحة الخاصة</h1>
+                    <p>مبدع تقني | مطور و شغوف بالتكنلوجية و الأشياء الخرافية ✨</p>
+                </div>
+            </div>
+
+            <div class="section-title">
+                🚀 التخصصات و المهرات الأساسية
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <h3>التطوير والبرمجة</h3>
+                    <p>بناء و تطوير واجهات مستخدم تفاعلية، تطبيقات ذكية وهندسة البرمجيات بأسلوب احترافي.</p>
+                </div>
+                <div class="skill-item">
+                    <h3>الذكاء الإصطناعي والتقنية</h3>
+                    <p>استخدام الأدوات الذكية، أتمة المهام، وتحليل البيانات بأحدث التقنيات المبتكرة</p>
+                </div>
+                <div class="skill-item">
+                    <h3>التصاميم الرقمية والإبداعية</h3>
+                    <p>تصميم تجارب مستعمل مميزات مع لمسات بصرية ساحرة وألوان متناسقة.</p>
+                </div>
+                <div class="skill-item">
+                    <h3>إدارة المشاريع والإبتكارات</h3>
+                    <p>التخطيط الاستراتيجي وحل المشاكل المعقدة بأفكار إبداعية وغير تقليدية.</p>
+                </div>
+            </div>
+
+            <div class="awesome-box">
+                <h3>🔥 ميزات وإنجازات استثنائية </h3>
+                <p>القدرة الفريدة على دمج البرمجة بلإبداع البصري لتنفيذ مشاريع تخطف الأنظار. حلول برمجية سريعة، تفكير خارج الصندوق، وشغف لا ينتهي بتعلم كل ما هو جديد ومتقدم في عالم التكنلوجية | "ياسين أيت مولي".</p>
+            </div>
+
+            <div class="footer">
+               ! صنع بكل شغف وإبداع 💡 | افتح هذا الملف في أي متصفح لترى السحر | شكراً لك أخي مصطفى 🤍
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
